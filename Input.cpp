@@ -35,4 +35,18 @@ void Engine::input()
 
 		} // if event keypressed
 	} // while poll event
+	
+	// Handle input specific to Thomas
+	if(m_Thomas.handleInput()) // this actually handles the all the input needed
+	{
+		// Play a sound
+	}
+
+	// Handle input specific to Bob
+	if(m_Bob.handleInput())
+	{
+		// Play a sound
+	
+	}
+
 } // end input()
