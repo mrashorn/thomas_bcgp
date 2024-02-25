@@ -19,8 +19,8 @@ void Engine::loadLevel()
 	m_TimeRemaining = m_LM.getTimeLimit();
 
 	// Spawn Thomas and Bob
-	m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);
-	m_Bob.spawn(m_LM.getStartPosition(), GRAVITY);
+	m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY, "Thomas");
+	m_Bob.spawn(m_LM.getStartPosition(), GRAVITY, "Bob");
 
 	// Make sure this code isn't run again
 	m_NewLevelRequired = false;

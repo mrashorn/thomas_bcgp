@@ -76,12 +76,13 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				}
 				else if (character.getLeft().intersects(block))
 				{
-					character.stopLeft(block.left);
+					character.stopLeft(block.left); 
 				}
 
 				if (character.getFeet().intersects(block))
 				{
 					character.stopFalling(block.top);
+					character.printPosition();
 				}
 				else if (character.getHead().intersects(block))
 				{

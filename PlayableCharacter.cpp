@@ -1,6 +1,7 @@
 #include "PlayableCharacter.h"
+#include <iostream>
 
-void PlayableCharacter::spawn(Vector2f startPosition, float gravity)
+void PlayableCharacter::spawn(Vector2f startPosition, float gravity, std::string name)
 {
 	// Place the player at the starting point.
 	m_Position.x = startPosition.x;
@@ -11,6 +12,8 @@ void PlayableCharacter::spawn(Vector2f startPosition, float gravity)
 
 	// Move the entire sprite in to position
 	m_Sprite.setPosition(m_Position);
+
+	m_Name = name;
 }
 
 void PlayableCharacter::update(float elapsedTime)
@@ -47,6 +50,7 @@ void PlayableCharacter::update(float elapsedTime)
 	// Update the rect for all body parts
 	FloatRect r = getPosition();
 
+
 	// Feet
 	m_Feet.left = r.left + 3;
 	m_Feet.top = r.top + r.height - 1;
@@ -61,7 +65,7 @@ void PlayableCharacter::update(float elapsedTime)
 
 	// Right
 	m_Right.left = r.left + r.width - 2;
-	m_Right.top = r.top + r.height * .35;
+	m_Right.top = r.top + r.height * .35; // .35
 	m_Right.width = 1;
 	m_Right.height = r.height * .3;
 
@@ -137,6 +141,36 @@ void PlayableCharacter::stopJump()
 	// Stop a jump early
 	m_IsJumping = false;
 	m_IsFalling = true;
+}
+
+void PlayableCharacter::printPosition()
+{
+	FloatRect r = getPosition();
+	std::cout << "r.left: " << r.left << std::endl;
+	std::cout << "r.top: " << r.top << std::endl;
+	std::cout << "r.width: " << r.width << std::endl;
+	std::cout << "r.height: " << r.height << std::endl;
+
+
+	std::cout << "head.left: " << getHead().left << std::endl;
+	std::cout << "head.top: " << getHead().top << std::endl;
+	std::cout << "head.width: " << getHead().width << std::endl;
+	std::cout << "head.height: " << getHead().height << std::endl;
+
+	std::cout << "feet.left: " << getFeet().left << std::endl;
+	std::cout << "feet.top: " << getFeet().top << std::endl;
+	std::cout << "feet.width: " << getFeet().width << std::endl;
+	std::cout << "feet.height: " << getFeet().height << std::endl;
+
+	std::cout << "right.left: " << getRight().left << std::endl;
+	std::cout << "right.top: " << getRight().top << std::endl;
+	std::cout << "right.width: " << getRight().width << std::endl;
+	std::cout << "right.height: " << getRight().height << std::endl;
+
+	std::cout << "left.left: " << getLeft().left << std::endl;
+	std::cout << "left.top: " << getLeft().top << std::endl;
+	std::cout << "left.width: " << getLeft().width << std::endl;
+	std::cout << "left.height: " << getLeft().height << std::endl;
 }
 
 

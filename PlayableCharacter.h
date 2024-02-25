@@ -6,6 +6,7 @@ using namespace sf;
 class PlayableCharacter {
 	protected:
 		Sprite m_Sprite;
+		std::string m_Name;
 
 		// how long does a jump last
 		float m_JumpDuration;
@@ -45,7 +46,7 @@ class PlayableCharacter {
 		Texture m_Texture;
 
 	public:
-		void spawn(Vector2f startPosition, float gravity);
+		void spawn(Vector2f startPosition, float gravity, std::string name);
 
 		// This is a pure virtual function
 		bool virtual handleInput() = 0;
@@ -59,6 +60,8 @@ class PlayableCharacter {
 		FloatRect getHead();
 		FloatRect getRight();
 		FloatRect getLeft();
+
+		void printPosition();
 
 		// Send a copy of sprite to main
 		Sprite getSprite();
