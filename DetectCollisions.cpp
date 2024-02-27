@@ -35,7 +35,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	if (!character.getPosition().intersects(level))
 	{
 		// respawn the character
-		character.spawn(m_LM.getStartPosition(), GRAVITY);
+		character.spawn(m_LM.getStartPosition(), GRAVITY, character.getName());
 	}
 
 
@@ -54,7 +54,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			{
 				if (character.getHead().intersects(block))
 				{
-					character.spawn(m_LM.getStartPosition(), GRAVITY);
+					character.spawn(m_LM.getStartPosition(), GRAVITY, character.getName());
 					// Which sound should be played?
 					if (m_ArrayLevel[y][x] == 2) // Fire
 					{
@@ -70,6 +70,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			// Is character colliding with a regular block
 			if (m_ArrayLevel[y][x] == 1)
 			{
+				/*
 				if (character.getRight().intersects(block))
 				{
 					character.stopRight(block.left);
@@ -79,10 +80,10 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 					character.stopLeft(block.left); 
 				}
 
+				*/
 				if (character.getFeet().intersects(block))
 				{
 					character.stopFalling(block.top);
-					character.printPosition();
 				}
 				else if (character.getHead().intersects(block))
 				{

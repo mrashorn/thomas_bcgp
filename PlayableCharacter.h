@@ -52,6 +52,8 @@ class PlayableCharacter {
 		bool virtual handleInput() = 0;
 		// This class is now abstract and cannot be instantiated
 
+		std::string getName(); // custom function
+
 		// Where is the player?
 		FloatRect getPosition();
 

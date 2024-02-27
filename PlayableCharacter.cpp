@@ -85,6 +85,11 @@ FloatRect PlayableCharacter::getPosition()
 	return m_Sprite.getGlobalBounds();
 }
 
+std::string PlayableCharacter::getName()
+{
+	return m_Name;
+}
+
 Vector2f PlayableCharacter::getCenter()
 {
 	return Vector2f(

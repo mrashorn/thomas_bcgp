@@ -32,6 +32,8 @@ void Engine::update(float dtAsSeconds)
 
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed when Thomas is touching the home tile
+		detectCollisions(m_Thomas);
+		/*
 		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob))
 		{
 			// New level required
@@ -44,8 +46,10 @@ void Engine::update(float dtAsSeconds)
 			// Run bob's collision detection
 			detectCollisions(m_Bob);
 		}
+		*/
 
 		// Let Bob and Thomas jump on each others heads
+		/*
 		if (m_Bob.getFeet().intersects(m_Thomas.getHead()))
 		{
 			m_Bob.stopFalling(m_Thomas.getHead().top);
@@ -54,6 +58,7 @@ void Engine::update(float dtAsSeconds)
 		{
 			m_Thomas.stopFalling(m_Bob.getHead().top);
 		}
+		*/
 
 		
 

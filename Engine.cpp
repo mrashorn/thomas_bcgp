@@ -49,8 +49,6 @@ void Engine::run()
 		update(dtAsSeconds);
 		draw();
 
-		if (m_GameTimeTotal.asSeconds() > 3)
-			return;
 
 	}
 }
